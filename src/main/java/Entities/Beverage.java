@@ -1,31 +1,26 @@
 package Entities;
 
-public class Beverage {
+import lombok.Getter;
+import lombok.Setter;
+
+public class Beverage implements MenuComponent {
+    @Getter
+    @Setter
+
     private String name;
-    private double price;
+    public double price;
+    private double costo;
 
-    public Beverage(String name, double price) {
+    public Beverage(String name, double price, double costo) {
         this.name = name;
         this.price = price;
+        this.costo = costo;
     }
 
-    public Beverage() {
-
+    @Override
+    public double getCosto() {
+        return costo;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }

@@ -4,11 +4,12 @@ import lombok.Getter;
 
 import java.util.List;
 
-public class Pizza {
+public class Pizza implements MenuComponent {
 
         private String name;
         private double price;
         private List<Topping> toppings;
+
 
     public Pizza(String name, double price, List<Topping> toppings) {
         this.name = name;
@@ -42,5 +43,11 @@ public class Pizza {
 
     public void setToppings(List<Topping> toppings) {
         this.toppings = toppings;
+    }
+
+    @Override
+    public double getCosto() {
+        double costoToppings = toppings.stream().mapToDouble(MenuComponent::getCosto).sum();
+        return baseCosto + costoToppings;
     }
 }

@@ -1,17 +1,22 @@
 package Entities;
 
-public class Topping {
+import lombok.Getter;
+import lombok.Setter;
+
+public class Topping implements MenuComponent{
+    @Getter
+    @Setter
         private String name;
+        private double costo;
 
-    public Topping(String name) {
+
+    public Topping(String name, double costo) {
         this.name = name;
+        this.costo = costo;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public double getCosto() {
+        return costo;
     }
 }

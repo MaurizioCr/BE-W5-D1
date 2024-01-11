@@ -1,7 +1,9 @@
 package Entities;
 
+import javax.persistence.Entity;
 import java.util.List;
 
+@Entity
 public class Menu {
     private List<Pizza> pizzas;
     private List<Beverage> drinks;
